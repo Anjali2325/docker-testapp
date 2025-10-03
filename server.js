@@ -7,11 +7,11 @@ const PORT = 5050;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const MONGO_URL = "mongodb://admin:qwerty@localhost:27017";
+const MONGO_URL = "mongodb://admin:pass@localhost:27017";
 const client = new MongoClient(MONGO_URL);
-
-//GET all users
+    
 app.get("/getUsers", async (req, res) => {
+    const URL = "mongodb://admin:pass@localhost:27017";
     await client.connect(URL);
     console.log('Connected successfully to server');
 
@@ -40,3 +40,4 @@ app.post("/addUser", async (req, res) => {
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
 });
+
